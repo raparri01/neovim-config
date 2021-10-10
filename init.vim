@@ -21,7 +21,7 @@ if !filereadable(vimplug_exists)
  endif
  echo "Installing Vim-Plug..."
  echo ""
- silent exec "!"curl_exists" -fLo " . shellescape(vimplug_exists) . " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim";
+ silent exec "!"curl_exists" -fLo " . shellescape(vimplug_exists) . " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
  let g:not_finish_vimplug = "yes"
 
  autocmd VimEnter * PlugInstall
@@ -48,7 +48,7 @@ Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'navarasu/onedark.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updating the parsers on update
+Plug 'nvim-treesitter/nvim-treesitter', { 'commit': '3c07232'}
 
 if isdirectory('/usr/local/opt/fzf')
  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -119,8 +119,7 @@ filetype plugin indent on
  set ruler
  set number
  autocmd VimEnter * NERDTree
- autocmd VimEnter * wincmd w
- set wildignore+=*/node_modules/*,*/babelified/*,*/dist/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$, \~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_la texmk,*/.map
+ set wildignore+=*/node_modules/*,*/babelified/*,*/dist/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$/*,*/.log/*,*/.aux/*,*/.cls/*,*/.aux/*,*/.bbl/*,*/.blg/*,*/.fls/*,*/.fdb/*,*/.toc/*,*/.out/*,*/.glo/*,*/.log/*,*/.ist/*,*/.map/*
  :imap jj <Esc>
  let mapleader = ','
  let NERDTreeHijackNetrw = 0
@@ -177,9 +176,6 @@ set ruler
 set number
 
 let no_buffers_menu=1
-
-colorscheme onedark
-
 
 set mousemodel=popup
 set t_Co=256
